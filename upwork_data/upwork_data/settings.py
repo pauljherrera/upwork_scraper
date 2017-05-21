@@ -118,3 +118,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Heroku database
+import dj_database_url
+
+db_from_env = dj_database_url.config(default='postgres://qkxnrnligaymlp:313f48da96ba0d242eb8c5b64422a7e673ef7ac49e7218bbc07979e4c245d56e@ec2-23-21-220-188.compute-1.amazonaws.com:5432/d4uhaiq1tndj4n', 
+                                     conn_max_age=200)
+DATABASES['default'].update(db_from_env)

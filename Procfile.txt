@@ -1,0 +1,1 @@
+web: gunicorn upwork_data.upwork_data.wsgi --log-file -
