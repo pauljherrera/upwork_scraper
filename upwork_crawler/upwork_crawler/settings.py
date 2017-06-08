@@ -8,6 +8,13 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
+import sys
+import os
+
+
+sys.path.append("C:\\Users\\forex\\Documents\\web_development\\upwork_scraper\\upwork_data")
+os.environ['DJANGO_SETTINGS_MODULE'] = 'upwork_data.settings'
+
 
 BOT_NAME = 'upwork_crawler'
 
@@ -16,10 +23,13 @@ NEWSPIDER_MODULE = 'upwork_crawler.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'upwork_crawler (+http://www.yourdomain.com)'
+USER_AGENT = "Chrome/58.0.3029"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
+
+#Allows duplicates requests.
+DUPEFILTER_DEBUG = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -27,7 +37,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 5
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
